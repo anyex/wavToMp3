@@ -1,0 +1,115 @@
+﻿生成启动时间为 2018/7/26 星期四 下午 05:41:21。
+     1>项目“F:\wavToMp3\Trans\Trans-1\TransClass\TransClass.vcxproj”在节点 2 上(Build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“F:\wavToMp3\Trans\Trans-1\TransClass\obj\x64\Debug\TransClass.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       _ValidateValidArchitecture:
+         Validating architecture
+         Current project architecture 'x64' is compatible with the remote system architecture 'x64' ('x64').
+       _ValidateSources:
+         Validating sources
+       _CopySources:
+         Copying sources remotely to '132.232.23.164'
+         Copying file 'F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp' to '/root/projects/TransClass/main.cpp'
+       ClCompile:
+         Starting remote build
+         Compiling sources:
+         Invoking 'g++'
+         g++ -c -x c++ /root/projects/TransClass/main.cpp -g2 -gdwarf-2 -o "/root/projects/TransClass/obj/x64/Debug/main.o" -Wall -Wswitch -W"no-deprecated-declarations" -W"empty-body" -Wconversion -W"return-type" -Wparentheses -W"no-format" -Wuninitialized -W"unreachable-code" -W"unused-function" -W"unused-value" -W"unused-variable" -O0 -fno-strict-aliasing -fno-omit-frame-pointer -fthreadsafe-statics -fexceptions -frtti -std=c++11
+         main.cpp
+         /root/projects/TransClass/main.cpp: In member function ‘void MyString::Split(std::string&, std::string&, const string&)’:
+         /root/projects/TransClass/main.cpp:42:26: warning: conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+            int pos = str.find(flag);
+                                   ^
+         /root/projects/TransClass/main.cpp: In member function ‘int MyString::find(const string&)’:
+         /root/projects/TransClass/main.cpp:74:20: warning: conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+            return str.find(s);
+                             ^
+         /root/projects/TransClass/main.cpp: In member function ‘void File::readFile()’:
+         /root/projects/TransClass/main.cpp:114:37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+               if (filename.find(".wav-") == -1)
+                                              ^
+         /root/projects/TransClass/main.cpp:132:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+               if (s.find(".") == -1)
+                                   ^
+         /root/projects/TransClass/main.cpp: In member function ‘bool File::get()’:
+         /root/projects/TransClass/main.cpp:157:33: warning: conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+             int a = file.find_last_of("/");
+                                          ^
+         /root/projects/TransClass/main.cpp:158:33: warning: conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+             int b = file.find_last_of(".");
+                                          ^
+         /root/projects/TransClass/main.cpp: In member function ‘void File::DoTrans()’:
+         /root/projects/TransClass/main.cpp:178:57: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+            char *cmd[] = { "--preset fast standard",wav,mp3,NULL };
+                                                                  ^
+         /root/projects/TransClass/main.cpp: In function ‘void sig_handle(int)’:
+         /root/projects/TransClass/main.cpp:210:26: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+             File::Rename(swav, "-");
+                                   ^
+         
+     1>F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(42,26): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(42,26): warning :    int pos = str.find(flag);
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(42,26): warning :                           ^
+     1>F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(74,20): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(74,20): warning :    return str.find(s);
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(74,20): warning :                     ^
+     1>F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(114,37): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(114,37): warning :       if (filename.find(".wav-") == -1)
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(114,37): warning :                                      ^
+     1>F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(132,26): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(132,26): warning :       if (s.find(".") == -1)
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(132,26): warning :                           ^
+     1>F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(157,33): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(157,33): warning :     int a = file.find_last_of("/");
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(157,33): warning :                                  ^
+     1>F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(158,33): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(158,33): warning :     int b = file.find_last_of(".");
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(158,33): warning :                                  ^
+     1>F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(178,57): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(178,57): warning :    char *cmd[] = { "--preset fast standard",wav,mp3,NULL };
+F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(178,57): warning :                                                          ^
+     1>F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(210,26): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+         Done compiling '/root/projects/TransClass/main.cpp'
+       Link:
+         Linking objects
+         Invoking 'ld'
+         g++ -o "/root/projects/TransClass/bin/x64/Debug/TransClass.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /root/projects/TransClass/obj/x64/Debug/main.o
+         Done linking, output file name: '/root/projects/TransClass/bin/x64/Debug/TransClass.out'
+         Copying file '/root/projects/TransClass/bin/x64/Debug/TransClass.out' to 'F:\wavToMp3\Trans\Trans-1\TransClass\bin\x64\Debug\TransClass.out'
+         TransClass.vcxproj -> F:\wavToMp3\Trans\Trans-1\TransClass\bin\x64\Debug\TransClass.out
+       FinalizeBuildStatus:
+         正在删除文件“F:\wavToMp3\Trans\Trans-1\TransClass\obj\x64\Debug\TransClass.tlog\unsuccessfulbuild”。
+         正在对“F:\wavToMp3\Trans\Trans-1\TransClass\obj\x64\Debug\TransClass.tlog\TransClass.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“F:\wavToMp3\Trans\Trans-1\TransClass\TransClass.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+       “F:\wavToMp3\Trans\Trans-1\TransClass\TransClass.vcxproj”(Build 目标) (1) ->
+       (ClCompile 目标) -> 
+         F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(42,26): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(42,26): warning :    int pos = str.find(flag);
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(42,26): warning :                           ^
+         F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(74,20): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(74,20): warning :    return str.find(s);
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(74,20): warning :                     ^
+         F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(114,37): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(114,37): warning :       if (filename.find(".wav-") == -1)
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(114,37): warning :                                      ^
+         F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(132,26): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(132,26): warning :       if (s.find(".") == -1)
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(132,26): warning :                           ^
+         F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(157,33): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(157,33): warning :     int a = file.find_last_of("/");
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(157,33): warning :                                  ^
+         F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(158,33): warning : conversion to ‘int’ from ‘std::basic_string<char>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(158,33): warning :     int b = file.find_last_of(".");
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(158,33): warning :                                  ^
+         F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(178,57): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(178,57): warning :    char *cmd[] = { "--preset fast standard",wav,mp3,NULL };
+       F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(178,57): warning :                                                          ^
+         F:\wavToMp3\Trans\Trans-1\TransClass\main.cpp(210,26): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+
+    8 个警告
+    0 个错误
+
+已用时间 00:00:07.94
