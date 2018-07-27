@@ -15,6 +15,7 @@
 #include <set>
 #include <dirent.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <sys/wait.h>
 #include <signal.h>
 #include <sys/sem.h>
@@ -23,7 +24,9 @@
 
 
 int processNum = 0;
-char swav[128] = { 0 };
+char swav[128] ={ 0 };
+
+
 /*自定义string类*/
 class MyString {
 public:
@@ -116,7 +119,7 @@ public:
 
 		printf("whole_name:  %s\n", whole_name + 1);
 
-		snprintf(dir, path - whole_name, "%s", path);
+		snprintf(dir, whole_name - path+1, "%s", path);
 
 
 
@@ -159,11 +162,13 @@ public:
 						file.append("/");
 						file.append(direntp->d_name);
 
-						if (access(file.c_str(), R_OK))//判断文件是否可读
+						/*if (access(file.c_str(), R_OK))//判断文件是否可读
 						{
 							set.insert(file);
 							
-						}
+						}*/
+							set.insert(file);
+
 							file.clear();
 							continue;
 						
@@ -192,6 +197,35 @@ public:
 		}
 	}
 
+	/*创建目录*/
+	int CreateDir(const char* pathName)
+	{
+		char DirName[256];
+		strcpy(DirName, pathName);
+		int i, len = strlen(DirName);
+		if (DirName[len - 1] != '/')
+		{
+			strcat(DirName, "/");
+		}
+		for (i = 1; i <= len; i++)
+		{
+			if (DirName[i] == '/')
+			{
+				DirName[i] = 0;
+				if (access(DirName, F_OK) != 0)
+				{
+					if (mkdir(DirName, 0755) == -1)
+					{
+						perror("mkdir error");
+						return -1;
+					}
+				}
+				DirName[i] = '/';
+			}
+		}
+		return 0;
+	}
+
 	/*产生一个待转换的wav文件路径和转换后的输出文件路径*/
 	bool get()
 	{
@@ -203,16 +237,27 @@ public:
 			std::string file = *set.begin();
 			strcpy(wav, file.c_str());
 
-			int a = file.find_last_of("/");
+			int pos = file.find(path);
+			int len = path.size();
+			file.erase(pos, len);
+
 			int b = file.find_last_of(".");
 
-			file = file.substr(a + 1, b - a - 1);
-			
-			//strcpy(name, file.c_str());
+			file.erase(b);
 
-			sprintf(mp3,"%s%s%s",out.c_str(), file.c_str(),".mp3");
+			sprintf(mp3, "%s%s%s", out.c_str(), file.c_str(), ".mp3");
+			char dir[128],name[128],ext[8];
+			splitpath(mp3, dir, name, ext);
+
+			if (access(dir, F_OK) == -1)
+			{
+				umask(0);
+				CreateDir(dir);
+
+			}
 
 			set.erase(set.begin());
+
 
 			return true;
 		}
@@ -319,12 +364,12 @@ int main()
 {
 	
 
-	Ini ini("/root/task.ini");
+	Ini ini("/root/task/task.ini");
 	File file(ini.Inid["set"]["input"], ini.Inid["set"]["output"]);
-	
 	
 	signal(SIGCHLD, sig_handle);//为子进程退出注册事件
 
+	
 	while (true)
 	{
 		if (processNum < 4&&(!file.IsEmptySet()))
@@ -345,10 +390,12 @@ int main()
 		}
 		else if(processNum<4)
 		{
-			sleep(1);
+			file.readFile();
+			if (file.IsEmptySet())
+				std::cout << "wav be finished!" << std::endl;
 		}
 		else {
-			file.readFile();
+			sleep(1);
 		}
 	}
     return 0;
